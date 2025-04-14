@@ -1,34 +1,8 @@
-#include <vector>
+#include "Tetromino.h"
 #include <iostream>
+#include <vector>
 #include <cmath>
-
-using namespace std;
-
-
-enum Type_of_figure{
-    I, O, J, L, T
-};
-
-struct Coord{
-    pair<int, int> x1;
-    pair<int, int> y1;
-    pair<int, int> x2;
-    pair<int, int> y2;
-};
-
-class Tetromino{
-    private:
-        Type_of_figure Type;
-        int Rangle;
-        void setCoordinate();
-        Coord coordinates;
-    public:
-        void rotate();
-        void move(int dx, int dy);
-        bool isValidPosition(int xOffset, int yOffset);
-        Coord getCoordinates();
-        Tetromino(Type_of_figure t): Type(t){}
-};
+#include <utility>
 
 void Tetromino::setCoordinate(){
     Coord figure;
@@ -68,12 +42,11 @@ void Tetromino::setCoordinate(){
             cout << "Undefined type of figure" << endl;
             break;
     }
+    this->coordinates = figure;
 }
 
 bool Tetromino::isValidPosition(int xOffset, int yOffset){
-    if (xOffset < 10 && xOffset >= 0 && yOffset < 20 && yOffset >= 0){
-        return true;
-    }
+    return (xOffset < 10 && xOffset >= 0 && yOffset < 20 && yOffset >= 0);
 }
 
 //Исправить, добавить матрицу вращения
@@ -136,5 +109,15 @@ Coord Tetromino::getCoordinates(){
     return this->coordinates;
 }
 
-
+bool Tetromino::checkForBorder(int width, int height){
+    if (isValidPosition(this->coordinates.x1.first, this->coordinates.x1.second) &&
+        isValidPosition(this->coordinates.y1.first, this->coordinates.y1.second) &&
+        isValidPosition(this->coordinates.x2.first, this->coordinates.x2.second) &&
+        isValidPosition(this->coordinates.y2.first, this->coordinates.y2.second)
+    ){
+        return true;
+    }else{
+        return false;
+    }
+}
 
