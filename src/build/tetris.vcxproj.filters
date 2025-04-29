@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\GameBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\Tetromino.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\TetrominoGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\GameSession.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\LEOPA\Desktop\Programming\Projects\Parking_docker\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{22A6032B-AE66-3C7C-991D-C18E46FF6CC7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

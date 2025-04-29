@@ -1,0 +1,10 @@
+^C:\USERS\LEOPA\DESKTOP\PROGRAMMING\PROJECTS\PARKING_DOCKER\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/LEOPA/Desktop/Programming/Projects/Parking_docker/src -BC:/Users/LEOPA/Desktop/Programming/Projects/Parking_docker/src/build --check-stamp-file C:/Users/LEOPA/Desktop/Programming/Projects/Parking_docker/src/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

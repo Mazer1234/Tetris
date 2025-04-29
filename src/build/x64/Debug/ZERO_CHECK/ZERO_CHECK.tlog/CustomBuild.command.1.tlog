@@ -1,0 +1,10 @@
+^C:\USERS\LEOPA\DESKTOP\PROGRAMMING\PROJECTS\PARKING_DOCKER\SRC\BUILD\CMAKEFILES\161C8C8382A57EB777651A649A451799\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/LEOPA/Desktop/Programming/Projects/Parking_docker/src -BC:/Users/LEOPA/Desktop/Programming/Projects/Parking_docker/src/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/LEOPA/Desktop/Programming/Projects/Parking_docker/src/build/Tetris.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

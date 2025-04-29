@@ -1,3 +1,4 @@
+#pragma once
 #include "Tetromino.h"
 #include <vector>
 #include <iostream>

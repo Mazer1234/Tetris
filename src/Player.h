@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,8 +17,9 @@ class Player{
         //void setScore();
         void addToHistory();
         void getHistory();
-        void setName();
-        Player(string name) : nickname(name) {}
+        void setName(string name);
+        Player(string name) : nickname(name){}
+        string getName();
 };
 
 

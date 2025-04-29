@@ -30,7 +30,9 @@ class Tetromino{
         void move(int dx, int dy);
         bool isValidPosition(int xOffset, int yOffset);
         Coord getCoordinates();
-        Tetromino(Type_of_figure t): Type(t){}
+        Tetromino(Type_of_figure t): Type(t){
+            setCoordinate();
+        }
         bool checkForBorder(int width, int height);
 };
 

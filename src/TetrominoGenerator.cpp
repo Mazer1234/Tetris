@@ -1,14 +1,9 @@
 #include "TetrominoGenerator.h"
 #include <random>
 
-Tetromino TetrominoGenerator::getRandomTetromino(){
-    if (this->bag.empty() || this->Tetromino_index > this->bag.size()-1){
-        FisherSort();
-    }
-    
-    return this->bag[this->Tetromino_index]; // Там где вызывается надо увеличивать индекс
-}
-
+/**
+ * Сортировка фишера(Перестановка фигур в мешке в случайном порядке)
+ */
 void TetrominoGenerator::FisherSort(){
 
     for (int type = Type_first; type <= Type_last; type++){
@@ -16,7 +11,7 @@ void TetrominoGenerator::FisherSort(){
     }
 
     random_device rd; // создание генератора случайных чисел
-    mt19937 gen(rd); // инициализация генератора случайных чисел
+    mt19937 gen(rd()); // инициализация генератора случайных чисел, скобки нужны так как это не число
 
     for (int i = this->bag.size() - 1; i > 0; i--){
         uniform_int_distribution<> distrib(0, i); // Задание диапазона случайных чисел
@@ -27,6 +22,23 @@ void TetrominoGenerator::FisherSort(){
     }
 }
 
-void TetrominoGenerator::Tetromino_index_increment(){
-    this->Tetromino_index ++;
+/**
+ * Получение случайной фигуры из мешка(В нашем случае первой фигуры)
+ * После того как мешок закончится, сортировка фишера обновит его
+ */
+Tetromino TetrominoGenerator::getRandomTetromino(){
+    if (this->bag.empty() || this->Tetromino_index > this->bag.size()-1){
+        FisherSort();
+    }
+    
+    Tetromino_index_increment();
+    return this->bag[this->Tetromino_index]; // Там где вызывается надо увеличивать индекс
 }
+
+/**
+ * Увеличение индекса фигур для мешка
+ */
+void TetrominoGenerator::Tetromino_index_increment(){
+    if (this->Tetromino_index+1 < this->bag.size()) this->Tetromino_index ++;
+    else if (this->Tetromino_index+1 == this->bag.size()) this->Tetromino_index = 0;
+} 

@@ -4,6 +4,9 @@
 #include <cmath>
 #include <utility>
 
+/**
+ * Дать фигуре координаты на доске
+ */
 void Tetromino::setCoordinate(){
     Coord figure;
     switch(this->Type){
@@ -45,11 +48,17 @@ void Tetromino::setCoordinate(){
     this->coordinates = figure;
 }
 
+/**
+ * Правильная ли позиция(не выходит ли за рамки)
+ */
 bool Tetromino::isValidPosition(int xOffset, int yOffset){
     return (xOffset < 10 && xOffset >= 0 && yOffset < 20 && yOffset >= 0);
 }
 
 //Исправить, добавить матрицу вращения
+/**
+ * Поворот фигуры
+ */
 void Tetromino::rotate(){
     int centerX, centerY;
     switch (this->Type)
@@ -98,6 +107,9 @@ void Tetromino::rotate(){
         }
 }
 
+/**
+ * Перемещение фигуры на одну клетку вниз
+ */
 void Tetromino::move(int dx, int dy){
     this->coordinates.x1 = make_pair(this->coordinates.x1.first + dx, this->coordinates.x1.second + dy);
     this->coordinates.y1 = make_pair(this->coordinates.y1.first + dx, this->coordinates.y1.second + dy);
@@ -105,10 +117,16 @@ void Tetromino::move(int dx, int dy){
     this->coordinates.y2 = make_pair(this->coordinates.y2.first + dx, this->coordinates.y2.second + dy);
 }
 
+/**
+ * Получить координаты фигуры
+ */
 Coord Tetromino::getCoordinates(){
     return this->coordinates;
 }
 
+/**
+ * Проверка не вылазит ли фигура за рамки
+ */
 bool Tetromino::checkForBorder(int width, int height){
     if (isValidPosition(this->coordinates.x1.first, this->coordinates.x1.second) &&
         isValidPosition(this->coordinates.y1.first, this->coordinates.y1.second) &&

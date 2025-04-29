@@ -44,6 +44,9 @@ int GameBoard::clearLines(){
     return static_cast<int>(lines.size());
 }
 
+/**
+ * Можно ли разместить фигуру(есть ли на неё место?)
+ */
 bool GameBoard::canPlaceTetromino(Tetromino &tetromino){
     Coord coordinates = tetromino.getCoordinates();
     
@@ -57,11 +60,17 @@ bool GameBoard::canPlaceTetromino(Tetromino &tetromino){
     }
 }
 
+/**
+ * Сброс доски
+ */
 void GameBoard::reset(){;
     vector<vector<int>> board(10, vector<int>(10));
     this->board = board;
 }
 
+/**
+ * Вывод доски на экран
+ */
 void GameBoard::printBoard(){
     for(int i = 0; i < this->board.size(); i++){
         for (int j = 0; j < this->board[0].size(); j++){
@@ -71,18 +80,30 @@ void GameBoard::printBoard(){
     }
 }
 
+/**
+ * Получить высоту доски
+ */
 int GameBoard::getHeight(){
     return this->height;
 }
 
+/**
+ * Получить ширину доски
+ */
 int GameBoard::getWidth(){
     return this->width;
 }
 
+/**
+ * Получить текущую доску
+ */
 vector<vector<int>> GameBoard::getBoardState(){
     return this->board;
 }
 
+/**
+ * Размещение фигуры
+ */
 void GameBoard::placeTetromino(Tetromino &tetromino){
     if (canPlaceTetromino(tetromino) && tetromino.checkForBorder(this->width, this->height)){
         Coord coordinates = tetromino.getCoordinates();
@@ -93,6 +114,9 @@ void GameBoard::placeTetromino(Tetromino &tetromino){
     }
 }
 
+/**
+ * Обновление доски
+ */
 void GameBoard::setBoardState(vector<vector<int>> boardState){
     this->board = boardState;
 }
